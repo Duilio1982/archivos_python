@@ -33,14 +33,23 @@ def ej1():
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
 
+    stock = {}
+
+    stock ['tornillos'] = 100
+    stock ['tuercas'] = 150
+    stock ['arandelas'] = 300
+
+    for k, v in stock.items():
+        print (f'Cantidad de {k} : {v} u.')
+
 
 def ej2():
-    print('Ejercicio con diccionarios 2º')
+    print ('Ejercicio con diccionarios 2º')
     # Basado en el ejercicio anterior ej1, utilizaremos el diccionario
     # como una base de datos. Comenzaremos con un diccionario de stock
     # de nuestros productos en cero:
     
-    strock = {'tornillos': 0, 'tuercas': 0, 'arandelas': 0}
+    stock = {'tornillos': 0, 'tuercas': 0, 'arandelas': 0}
 
     # Paso 1:
     # Crear un bucle utilizando while que se ejecute de forma infinita
@@ -67,6 +76,19 @@ def ej2():
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
 
+    while True:
+        consulta = input ('''¿Que producto desea agregar al stock?
+        ingrese FIN si quiere finalizar el ingreso:''')
+        if consulta == 'FIN':
+            break
+        elif consulta in stock:
+            cantidad = int (input('Ingrese la cantidad de su producto: '))
+            stock [consulta] += cantidad
+        else:
+            print ('Su producto no esta en stock, intente con otro')
+
+    for k, v in stock.items():
+        print (f'Cantidad de {k} : {v} u.')
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
